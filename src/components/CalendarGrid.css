@@ -1,0 +1,127 @@
+.calendar-grid-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.weekday {
+  text-align: center;
+  font-weight: 500;
+  color: #6b7280;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  padding: 0.5rem 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-left: 1px solid #e5e7eb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.calendar-day {
+  min-height: 90px;
+  padding: 0.5rem;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.calendar-day:hover {
+  background: #fafafa;
+}
+
+.calendar-day.other-month {
+  background: #fafafa;
+}
+
+.calendar-day.other-month .day-number {
+  color: #d1d5db;
+}
+
+.calendar-day.today .day-number {
+  background: #000000;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.calendar-day.has-conflicts {
+  background: #fef9f9;
+}
+
+.day-number {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #000000;
+  margin-bottom: 0.25rem;
+}
+
+.event-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  align-items: center;
+  margin-top: auto;
+}
+
+.event-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.more-events {
+  font-size: 0.65rem;
+  color: #9ca3af;
+  margin-left: 0.25rem;
+}
+
+.conflict-indicator {
+  font-size: 0.75rem;
+  margin-right: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .calendar-day {
+    min-height: 70px;
+    padding: 0.25rem;
+  }
+
+  .weekday {
+    font-size: 0.7rem;
+    padding: 0.4rem 0;
+  }
+
+  .day-number {
+    font-size: 0.8rem;
+  }
+
+  .event-dot {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-day {
+    min-height: 60px;
+  }
+}
